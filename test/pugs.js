@@ -18,7 +18,7 @@ function updateClient(postData){
 }
 
 
-const url = "http://localhost:8080/converter";
+const url = "http://localhost:8080/";
 let path = "../res/text.xml"
 
 // read XML from a file

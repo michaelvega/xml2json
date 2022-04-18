@@ -3,6 +3,7 @@ import path from 'path';
 import {fileURLToPath} from 'url';
 import bodyParser from "body-parser";
 import { parseString } from "xml2js";
+import functions from "firebase-functions";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -10,7 +11,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.text())
-app.post('/converter', function(req, res) {
+app.post('/', function(req, res) {
     let xmldata = req.body;
 
     console.log('Raw XML: ' + xmldata);
@@ -31,11 +32,6 @@ app.get('/', function(req, res){
     res.sendFile(__dirname + "/index.html");
 })
 
-// Create a server to listen at port 8080
-var server = app.listen(8080, function(){
-    var host = server.address().address;
-    if(host === "::") host = "localhost";
-    var port = server.address().port;
-    console.log("REST API demo app listening at http://%s:%s", host, port)
-})
+exports.app = functions.https.onRequest(app);
+
 
