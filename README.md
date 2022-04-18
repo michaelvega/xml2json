@@ -2,7 +2,7 @@
 
 Converts OPML files to json. These can later be stored in a firestore database using documents. Has one function: xmlToJSON(path: String, name: String) -> JSON.
 
-## [**Now Live!**](https://fir-functions-api-a924d.uc.r.appspot.com/)
+## [**Now Live!**](https://us-central1-fir-functions-api-a924d.cloudfunctions.net/app/)
 
 * **Input**: Source to opml file
 * **Output**: JSON file (in /out)
