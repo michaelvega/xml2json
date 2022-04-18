@@ -1,6 +1,6 @@
 
-import request from "request";
-import fs from "fs";
+const request = require("request");
+const fs = require("fs");
 
 function updateClient(postData){
     var clientServerOptions = {
