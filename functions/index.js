@@ -1,12 +1,7 @@
-import express from 'express';
-import path from 'path';
-import {fileURLToPath} from 'url';
-import bodyParser from "body-parser";
-import { parseString } from "xml2js";
-import functions from "firebase-functions";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const express = require("express");
+var parseString = require('xml2js').parseString;
+const functions = require("firebase-functions");
+const bodyParser = require("body-parser")
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -31,6 +26,7 @@ app.post('/', function(req, res) {
 app.get('/', function(req, res){
     res.sendFile(__dirname + "/index.html");
 })
+
 
 exports.app = functions.https.onRequest(app);
 
